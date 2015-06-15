@@ -105,6 +105,38 @@ angular
         templateUrl:'views/pages/login.html',
         url:'/login'
     })
+        .state('dashboard.storeadd',{
+            templateUrl:'views/storeadd.html',
+            url:'/addstore',
+            controller:'StoreCtrl',
+            resolve:{
+                loadMyFiles:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'sbAdminApp',
+                        files:[
+                            'scripts/controllers/main.js',
+                        ]
+                    })
+                }
+            }
+        })
+        .state('dashboard.storeview',{
+            templateUrl:'views/storeview.html',
+            url:'/storeview/:id',
+            controller:'StoreCtrl',
+            resolve:{
+                loadMyFiles:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'sbAdminApp',
+                        files:[
+                            'scripts/services/XLSXReaderService.js',
+                            'scripts/directives/file/file.js',
+                            'scripts/controllers/main.js',
+                        ]
+                    })
+                }
+            }
+        })
       .state('dashboard.chart',{
         templateUrl:'views/chart.html',
         url:'/chart',
