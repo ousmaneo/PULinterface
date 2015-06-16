@@ -114,6 +114,7 @@ angular
                     return $ocLazyLoad.load({
                         name:'sbAdminApp',
                         files:[
+                            'scripts/services/XLSXReaderService.js',
                             'scripts/controllers/main.js',
                         ]
                     })
